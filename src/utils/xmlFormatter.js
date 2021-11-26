@@ -1,0 +1,25 @@
+const XMLWriter = require('xml-writer')
+
+module.exports = (values) => {
+  const xmlNode = (data) => {
+    xml.startElement('color')
+    Object.keys(data).forEach(key => {
+      xml.writeElement(key, data[key])
+    })
+    xml.endElement()
+  }
+
+  const xml = new XMLWriter()
+  xml.startDocument('1.0', 'UTF-8')
+
+  if (!Array.isArray(values)) {
+    xmlNode(values)
+    return xml.toString()
+  }
+
+  xml.startElement('colors')
+  values.forEach(x => xmlNode(x))
+
+  xml.endDocument()
+  return xml.toString()
+}

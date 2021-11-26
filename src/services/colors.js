@@ -6,6 +6,10 @@ class ColorService {
       attributes: ['id', 'name', 'color']
     })
   }
+
+  getById (id) {
+    return Color.findByPk(id)
+  }
 }
 
 module.exports = ColorService

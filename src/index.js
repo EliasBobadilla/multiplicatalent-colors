@@ -4,6 +4,7 @@ const log = require('log4js')
 const route = require('./routes')
 const Config = require('./config')
 const notFoundHandler = require('./handlers/notFoundHandler')
+const responseHandler = require('./handlers/responseHandler')
 const { logErrors, errorHandler, wrapErrors } = require('./handlers/errorHandler')
 
 log.configure({
@@ -27,11 +28,14 @@ app.use(log.connectLogger(logger, { level: 'info' }))
 app.use(cors())
 app.use(express.json())
 
+// Response handler
+app.use(responseHandler)
+
 // Routes
-app.use('/', route)
+app.use(`/${Config.api}/`, route)
 app.use(notFoundHandler)
 
-// Error handlers
+// Error Handlers
 app.use(wrapErrors)
 app.use(logErrors)
 app.use(errorHandler)

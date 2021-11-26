@@ -14,7 +14,8 @@ const Color = sequelize.define('Color', {
   color: DataTypes.STRING,
   pantone: DataTypes.STRING
 }, {
-  tableName: 'colors'
+  tableName: 'colors',
+  timestamps: false
 })
 
 module.exports = Color

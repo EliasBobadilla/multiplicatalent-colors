@@ -1,4 +1,4 @@
-const { config } = require('../config')
+const Config = require('../config')
 const boom = require('@hapi/boom')
 const logger = require('log4js').getLogger('default')
 
@@ -8,7 +8,7 @@ const logger = require('log4js').getLogger('default')
  * @param {object} stack
  */
 function errorStack (error, stack) {
-  return config.dev ? { ...error, stack } : error
+  return Config.dev ? { ...error, stack } : error
 }
 
 /**
