@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Jetbrain folder
+.idea
+
+# to avoid errors on deployment
+package-lock.json
