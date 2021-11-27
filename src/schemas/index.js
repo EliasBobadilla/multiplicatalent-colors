@@ -9,4 +9,11 @@ const pagedSchema = joi.object({
   })
 })
 
-module.exports = { pagedSchema }
+const addSchema = joi.object({
+  name: joi.string().min(3).required().messages({ 'any.required': 'name is required' }),
+  year: joi.number().required().messages({ 'any.required': 'number is required' }),
+  color: joi.string().min(7).required().messages({ 'any.required': 'type1 is required' }),
+  pantone: joi.string().min(5).required().messages({ 'any.required': 'type1 is required' })
+})
+
+module.exports = { pagedSchema, addSchema }

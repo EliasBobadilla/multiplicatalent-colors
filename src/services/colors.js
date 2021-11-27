@@ -26,6 +26,10 @@ class ColorService {
   getById (id) {
     return Color.findByPk(id)
   }
+
+  add (dto) {
+    return Color.create(dto)
+  }
 }
 
 module.exports = ColorService
