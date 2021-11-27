@@ -2,7 +2,7 @@ const xmlFormatter = require('../utils/xmlFormatter')
 
 module.exports = (req, res, next) => {
   const { type } = req.query
-  if (type.toLowerCase() !== 'xml') return next()
+  if (!type || type.toLowerCase() !== 'xml') return next()
 
   res.set('Content-Type', 'text/xml')
   const originalSend = res.send

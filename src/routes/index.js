@@ -1,5 +1,7 @@
 const { Router } = require('express')
 const ColorService = require('../services/colors')
+const validationHandler = require('../handlers/validationHandler')
+const { pagedSchema } = require('../schemas')
 
 const router = Router()
 const colorService = new ColorService()
@@ -9,6 +11,18 @@ router.get(
   async (req, res, next) => {
     try {
       const response = await colorService.all()
+      res.status(200).json(response)
+    } catch (error) {
+      next(error)
+    }
+  })
+
+router.get(
+  '/:page/:total',
+  validationHandler(pagedSchema, 'params'),
+  async ({ params: { page, total } }, res, next) => {
+    try {
+      const response = await colorService.allPaged(page, total)
       res.status(200).json(response)
     } catch (error) {
       next(error)
