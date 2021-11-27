@@ -2,11 +2,25 @@ const XMLWriter = require('xml-writer')
 
 module.exports = (values) => {
   const xmlNode = (data) => {
-    xml.startElement('color')
-    Object.keys(data).forEach(key => {
-      xml.writeElement(key, data[key])
-    })
-    xml.endElement()
+    if (data.color) {
+      xml.startElement('color')
+      Object.keys(data).forEach(key => {
+        xml.writeElement(key, data[key])
+      })
+      xml.endElement()
+    } else {
+      xml.startElement('xml')
+      Object.keys(data).forEach(key => {
+        if (!Array.isArray(data[key])) {
+          xml.writeElement(key, data[key])
+        } else {
+          xml.startElement(key)
+          data[key].forEach(x => xmlNode(x))
+          xml.endElement()
+        }
+      })
+      xml.endElement()
+    }
   }
 
   const xml = new XMLWriter()
