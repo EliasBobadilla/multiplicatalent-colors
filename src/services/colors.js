@@ -16,8 +16,8 @@ class ColorService {
       limit
     })
     return {
-      page,
-      totalCount: result.count,
+      currentPage: page,
+      results: result.count,
       totalRows: result.rows.length,
       rows: result.rows
     }
