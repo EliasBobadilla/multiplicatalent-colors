@@ -3,139 +3,92 @@
 ## Reto: Back End Developer Medium/Senior
 
 ---
+![CodeQL](https://github.com/eliasbobadilla/nodemon/workflows/CodeQL/badge.svg) ![Tests](https://github.com/eliasbobadilla/nodemon/workflows/Tests/badge.svg)
 
-En la empresa en la que actualmente trabajas han estandarizado los colores que se van a utilizar para todos los
-productos; para páginas web, nuevos diseños, flyers y hasta para redes sociales.
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-Para que los demás departamentos y diseñadores puedan tener acceso a los colores, te han dado a ti y a una compañera la
-tarea de crear una aplicación para poderlos copiar fácilmente.
+La aplicación tiene las siguientes características:
+- Documentación con **Swagger** en la ruta principal: `http://localhost:3000`
+- Desplegado con Docker
+- Todos los endpoints cuentan con pruebas unitarias
+- Todos los endpoints pueden recibir por `query` el parámetro `type` para responder en formato XML o JSON.
 
-Tu estás encargado/a de crear una API que devuelva la lista de colores y tu compañera está encarga de crear el front
-end.
+**Ejemplo** usando `curl` desde terminal:
 
-Toma en cuenta los siguientes requerimientos.
-
-Nota: La prueba deberás de realizarla utilizando las tecnologías que te indicó tu reclutador.
-
-## Requerimientos
-
-- README.md con la siguiente información:
-    - Breve introducción a la aplicación
-    - Listado de las tecnologías o frameworks utilizados
-    - Cómo instalar las dependencias y correr el proyecto
-    - URL a producción en caso de haber sido subido
-- Implementar el API endpoint de colores de acuerdo a las especificaciones
-- Implementar paginación de los datos proporcionados
-- Guardar los colores que se te proporcionan en base de datos
-- Devolver JSON o XML según la indicación
-- Utilizar git como control de versiones
-
-Al finalizar, comprime el proyecto en un ZIP y súbelo en la sección derecha. Puedes incluir todas las carpetas que
-consideres necesarias.
-
-## Especificaciones
-
-Considera que los siguientes endpoints deben de ser implementados pero que los ejemplos presentados son sugerencias de
-cómo deberá de estar formateada la respuesta.
-
-Si incluyes paginación considera que se podrán exponer datos informativos como: página actual, número de páginas, total
-de elementos, etc.
-
-## GET /colores
-
-Regresa la colección de colores disponibles con la siguiente información.
-
-- ID
-- Name
-- Color
-
-### Ejemplo en JSON
-
-```json
-[
-  {
-    "id": 1,
-    "name": "cerulean",
-    "color": "#98B2D1"
-  },
-  {
-    "id": 2,
-    "name": "fuchsia rose",
-    "color": "#C74375"
-  },
-  {
-    "id": 3,
-    "name": "true red",
-    "color": "#BF1932"
-  }
-]
-```
-
-### Ejemplo en XML
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<colors>
-    <color>
-        <id>1</id>
-        <name>cerulean</name>
-        <color>#98B2D1</color>
-    </color>
-    <color>
-        <id>2</id>
-        <name>fuchsia rose</name>
-        <color>#C74375</color>
-    </color>
-    <color>
-        <id>3</id>
-        <name>true red</name>
-        <color>#BF1932</color>
-    </color>
-</colors>
-```
-
-## GET /colores/:id
-
-Regresa un sólo recurso de acuerdo al ID que se especifica, incluye la siguiente información.
-
-- ID
-- Name
-- Color
-- Pantone
-- Year
-
-- ## Ejemplo JSON
+- `curl http://localhost:3000/colores/7` **devuelve el color con Id #7 en formato JSON**
 
 ```json
 {
-  "id":  1,
-  "name":  "cerulean",
-  "year":  2000,
-  "color":  "#98B2D1",
-  "pantone":  "15-4020"
+  "id": 7,
+  "name": "demo",
+  "year": 2021,
+  "color": "Yellow",
+  "pantone": "24-1985"
 }
 ```
 
-# Ejemplo XML
+- `curl http://localhost:3000/colores/7?type=xml` **devuelve el color con Id #7 en formato XML**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <color>
-    <id>1</id>
-    <name>cerulean</name>
-    <color>#98B2D1</color>
-    <pantone>15-4020</pantone>
-    <year>2000</year>
+    <id>7</id>
+    <name>demo</name>
+    <year>2021</year>
+    <color>Yellow</color>
+    <pantone>24-1985</pantone>
 </color>
+  ```
+
+## Endpoints disponibles:
+
+---
+### get:
+- [/colores]() **Listar todos los colores guardados en la base de datos**
+- [/colores/:id]() **Obtener color por Id**
+- [/colores/:page/:total]() **Listar colores guardados en la base de datos con paginación**
+
+### post:
+- [/colores]() **Agregar un nuevo color**
+
+## Tecnologías utilizadas:
+
+---
+- NodeJS
+- Express
+- SQLite
+
+## Configurar entorno local de desarrollo:
+
+---
+Para ejecutar localmente este proyecto necesitas NodeJS 16 o superior. Puedes descargarlo aqui: 
+[download](https://nodejs.org/en/download), la guia de instalacion [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) [Node.js](https://nodejs.org).
+
+Si ya cuentas con NodeJS instalado puedes clonar el repositorio con el siguiente comando:
+```bash
+git clone https://github.com/eliasbobadilla/multiplicatalent-colors.git && cd multiplicatalent-colors
 ```
 
-### Puntos extras
+luego, es necesario restaurar las dependencias del proyecto, 
+para esto puedes ejecutar el comando
+```bash
+npm install
+```
+luego, puedes ejecutar el comando
+```bash
+npm run dev
+```
+para iniciar el servidor local, por defecto se iniciará en el puerto **3000**.
 
-Se te darán puntos extras si incluyes lo siguiente en tu proyecto:
+Puedes correr las pruebas unitarias con
+```bash
+npm run test
+```
 
-- Pruebas unitarias o con alguna herramienta
-- Endpoint para crear colores nuevos
-- Códigos HTTP correctos
-- Deploy en un servidor o Docker
-- Opción en parámetros para devolver JSON o XML.
-- Documentación
+## Deployment:
+
+---
+Puedes ver la aplicación en linea aqui: www.lorenipsum.com
+
+
+
