@@ -1,6 +1,6 @@
 # API de Colores
 
-## Reto: Back End Developer Medium/Senior
+## Reto: Back End Developer
 
 ---
 [![NodeJS](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/591px-Node.js_logo_2015.svg.png)](https://nodejs.org)
