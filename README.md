@@ -3,9 +3,10 @@
 ## Reto: Back End Developer Medium/Senior
 
 ---
+[![NodeJS](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/591px-Node.js_logo_2015.svg.png)](https://nodejs.org)
+
 ![CodeQL](https://github.com/eliasbobadilla/nodemon/workflows/CodeQL/badge.svg) ![Tests](https://github.com/eliasbobadilla/nodemon/workflows/Tests/badge.svg)
 
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 La aplicación tiene las siguientes características:
 - Documentación con **Swagger** en la ruta principal: `http://localhost:3000`
@@ -83,6 +84,10 @@ para iniciar el servidor local, por defecto se iniciará en el puerto **3000**.
 Puedes correr las pruebas unitarias con
 ```bash
 npm run test
+```
+o ver los porcentajes de cobertura de los test con
+```bash
+npm run coverage
 ```
 
 ## Deployment:
