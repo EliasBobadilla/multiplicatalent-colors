@@ -28,7 +28,7 @@ describe('### RESPONSE TYPE JSON ###', () => {
 
   it('Add new color', async () => {
     const response = await localhost
-      .post('/colores/add')
+      .post('/colores')
       .send({
         name: `Test color ${Math.floor(Math.random() * 100)}`,
         year: 2021,
@@ -63,7 +63,7 @@ describe('### RESPONSE TYPE XML ###', () => {
 
   it('Add new color', async () => {
     const response = await localhost
-      .post('/colores/add?type=xml')
+      .post('/colores?type=xml')
       .send({
         name: `Test color ${Math.floor(Math.random() * 100)}`,
         year: 2021,

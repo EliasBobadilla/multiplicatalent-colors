@@ -27,6 +27,7 @@
     "log4js": "^6.3.0",
     "sequelize": "^5.22.4",
     "sqlite3": "^5.0.2",
+    "swagger-ui-express": "^4.1.6",
     "xml-writer": "^1.7.0"
   },
   "devDependencies": {

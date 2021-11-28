@@ -1,7 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const log = require('log4js')
-const route = require('./routes')
+const colorsRouter = require('./routes/colors')
+const swaggerRouter = require('./routes/swagger')
 const Config = require('./config')
 const notFoundHandler = require('./handlers/notFoundHandler')
 const responseHandler = require('./handlers/responseHandler')
@@ -32,7 +33,8 @@ app.use(express.json())
 app.use(responseHandler)
 
 // Routes
-app.use(`/${Config.api}/`, route)
+app.use('/', swaggerRouter)
+app.use(`/${Config.api}/`, colorsRouter)
 app.use(notFoundHandler)
 
 // Error Handlers

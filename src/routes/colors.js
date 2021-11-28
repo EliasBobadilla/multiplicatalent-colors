@@ -41,7 +41,7 @@ router.get(
   })
 
 router.post(
-  '/add',
+  '/',
   validationHandler(addSchema),
   async (req, res, next) => {
     try {

@@ -19,3 +19,30 @@ const Color = sequelize.define('Color', {
 })
 
 module.exports = Color
+
+/*
+  "definitions": {
+    "Color": {
+      "id": {
+        "type": "integer",
+        "uniqueItems": true
+      },
+      "name": {
+        "type": "string"
+      },
+      "year": {
+        "type": "integer"
+      },
+      "color": {
+        "type": "string"
+      },
+      "pantone": {
+        "type": "string"
+      }
+    },
+    "Colors": {
+      "type": "array",
+      "$ref": "#/definitions/Color"
+    }
+  }
+ */
