@@ -7,12 +7,12 @@
 
 ![CodeQL](https://github.com/eliasbobadilla/nodemon/workflows/CodeQL/badge.svg) ![Tests](https://github.com/eliasbobadilla/nodemon/workflows/Tests/badge.svg)
 
-
 La aplicación tiene las siguientes características:
-- Documentación con **Swagger** en la ruta principal: `http://localhost:3000`
-- Desplegado con Docker
+
+- Documentación con **Swagger** en la ruta principal, por ejemplo: `http://localhost:3000`
+- Dockerizado
 - Todos los endpoints cuentan con pruebas unitarias
-- Todos los endpoints pueden recibir por `query` el parámetro `type` para responder en formato XML o JSON.
+- Todos los endpoints pueden recibir por `query` el parámetro `type` para responder en formato **XML** o **JSON**.
 
 **Ejemplo** usando `curl` desde terminal:
 
@@ -44,17 +44,21 @@ La aplicación tiene las siguientes características:
 ## Endpoints disponibles:
 
 ---
+
 ### get:
+
 - [/colores]() **Listar todos los colores guardados en la base de datos**
 - [/colores/:id]() **Obtener color por Id**
 - [/colores/:page/:total]() **Listar colores guardados en la base de datos con paginación**
 
 ### post:
+
 - [/colores]() **Agregar un nuevo color**
 
 ## Tecnologías utilizadas:
 
 ---
+
 - NodeJS
 - Express
 - SQLite
@@ -62,30 +66,38 @@ La aplicación tiene las siguientes características:
 ## Configurar entorno local de desarrollo:
 
 ---
-Para ejecutar localmente este proyecto necesitas NodeJS 16 o superior. Puedes descargarlo aqui: 
-[download](https://nodejs.org/en/download), la guia de instalacion [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) [Node.js](https://nodejs.org).
+Para ejecutar localmente este proyecto necesitas NodeJS 16 o superior. Puedes descargarlo aquí:
+[download](https://nodejs.org/en/download), la guía de
+instalación [Install](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) [Node.js](https://nodejs.org).
 
 Si ya cuentas con NodeJS instalado puedes clonar el repositorio con el siguiente comando:
+
 ```bash
 git clone https://github.com/eliasbobadilla/multiplicatalent-colors.git && cd multiplicatalent-colors
 ```
 
-luego, es necesario restaurar las dependencias del proyecto, 
-para esto puedes ejecutar el comando
+Luego, es necesario restaurar las dependencias del proyecto, para esto puedes ejecutar el comando:
+
 ```bash
 npm install
 ```
-luego, puedes ejecutar el comando
+
+Luego, puedes ejecutar el comando:
+
 ```bash
 npm run dev
 ```
-para iniciar el servidor local, por defecto se iniciará en el puerto **3000**.
 
-Puedes correr las pruebas unitarias con
+Para iniciar el servidor local, por defecto se iniciará en el puerto **3000**.
+
+Puedes correr las pruebas unitarias con:
+
 ```bash
 npm run test
 ```
-o ver los porcentajes de cobertura de los test con
+
+O ver los porcentajes de cobertura de los test con:
+
 ```bash
 npm run coverage
 ```
@@ -93,7 +105,7 @@ npm run coverage
 ## Deployment:
 
 ---
-La aplicacion esta publicada en Heroku, puedes visitarla aqui: https://multiplicatalent-colors.herokuapp.com/, Swagger funciona en el Scheme HTTPS en produccion y en HTTP en tu entorno local
+La aplicación está publicada en **Heroku**, puedes visitarla aquí: https://multiplicatalent-colors.herokuapp.com
 
 
 
