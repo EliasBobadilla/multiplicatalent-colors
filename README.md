@@ -93,7 +93,7 @@ npm run coverage
 ## Deployment:
 
 ---
-Puedes ver la aplicación en linea aqui: www.lorenipsum.com
+La aplicacion esta publicada en Heroku, puedes visitarla aqui: https://multiplicatalent-colors.herokuapp.com/, Swagger funciona en el Scheme HTTPS en produccion y en HTTP en tu entorno local
 
 
 
