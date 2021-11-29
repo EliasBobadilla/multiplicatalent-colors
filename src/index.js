@@ -33,8 +33,8 @@ app.use(express.json())
 app.use(responseHandler)
 
 // Routes
-app.use('/', swaggerRouter)
 app.use(`/${Config.api}/`, colorsRouter)
+app.use('/', swaggerRouter)
 app.use(notFoundHandler)
 
 // Error Handlers
